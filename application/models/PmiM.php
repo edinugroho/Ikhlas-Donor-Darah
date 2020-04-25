@@ -18,6 +18,14 @@ class PmiM extends CI_Model {
 	{
 		return $this->db->query("SELECT * FROM `pmi`")->result();
 	}
+	public function tambahAcara($data)
+	{
+		$this->db->insert('acara', $data);
+	}
+	public function getAcara()
+	{
+		return $this->db->query("SELECT * FROM `acara`")->result();
+	}
 }
 
 /* End of file PmiM.php */

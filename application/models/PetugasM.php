@@ -10,6 +10,10 @@ class PetugasM extends CI_Model {
 	{
 		return $this->db->get_where('petugas', array('username' => $data['username'],'password' => $data['password']))->row_array();
 	}
+	public function getPetugas()
+	{
+		return $this->db->query('SELECT * FROM `petugas`')->result();
+	}
 	public function tambahPetugas($data)
 	{
 		return $this->db->insert('petugas', $data);

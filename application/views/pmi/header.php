@@ -26,12 +26,12 @@
   <meta name="msapplication-TileImage" content="<?php echo base_url('assets/') ?>images/favicon/mstile-144x144.png">
   <!-- For Windows Phone -->
   <script type="text/javascript" src="<?php echo base_url('assets/') ?>js/plugins/jquery-1.11.2.min.js"></script>    
-  <link href="<?php echo base_url('assets/') ?>js/plugins/data-tables/css/jquery.dataTables.min.css" type="text/css" rel="stylesheet" media="screen,projection">
-  <script type="text/javascript" src="<?php echo base_url('assets/') ?>js/plugins/jquery-1.11.2.min.js"></script>    
+  <link href="<?php echo base_url('assets/') ?>js/plugins/data-tables/css/jquery.dataTables.min.css" type="text/css" rel="stylesheet" media="screen,projection"> 
 
   <script type="text/javascript" src="<?php echo base_url('assets/') ?>js/plugins/data-tables/js/jquery.dataTables.min.js"></script>
 
   <script type="text/javascript" src="<?php echo base_url('assets/') ?>js/plugins/data-tables/data-tables-script.js"></script> 
+
   
 
 

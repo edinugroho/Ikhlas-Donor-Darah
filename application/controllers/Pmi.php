@@ -43,6 +43,66 @@ class Pmi extends CI_Controller {
 		$this->load->view('pmi/tambah_petugas');
 		$this->load->view('pmi/footer');		
 	}
+	public function dataPetugas()
+	{
+		$data['petugas'] = $this->PetugasM->getPetugas();
+		$this->load->view('pmi/header');
+		$this->load->view('pmi/data_petugas',$data);
+		$this->load->view('pmi/footer');		
+	}
+	// public function dataAcara()
+	// {
+	// 	$data['acara'] = $this->PmiM->getAcara();
+	// 	$this->load->view('pmi/header');
+	// 	$this->load->view('pmi/data_acara',$data);
+	// 	$this->load->view('pmi/footer');		
+	// }
+	public function tambahAcara()
+	{
+		$this->form_validation->set_rules('namaAcara', 'Nama Acara', 'trim|required');
+		$this->form_validation->set_rules('deskripsi', 'Deskripsi', 'trim|required');
+		if ($this->form_validation->run() == FALSE) {
+			$this->load->view('pmi/header');
+			$this->load->view('pmi/tambah_acara');
+			$this->load->view('pmi/footer');
+		} else {
+			$config['upload_path'] = './gambarAcara/';
+			$config['allowed_types'] = 'gif|jpg|png';
+			$config['max_size']  = '100';
+			$config['max_width']  = '5024';
+			$config['max_height']  = '768';
+			$config['file_name'] = $this->session->userdata('username').$this->input->post('namaAcara');
+			$config['overwrite'] = TRUE;
+			$this->load->library('upload', $config);
+			
+			if ( ! $this->upload->do_upload('gambar')){
+				$error = array('error' => $this->upload->display_errors());
+			}
+			else{
+				$datau = array('upload_data' => $this->upload->data());
+				$data = [
+					'nama_acara' => $this->input->post('namaAcara'),
+					'gambar'=> 'gambarAcara/'.$datau['upload_data']['file_name'],
+					'tanggal_acara' => $this->input->post('tanggal'),
+					'deskripsi' => $this->input->post('deskripsi'),
+					'poin' => $this->input->post('poin'),
+					'id_pmi' => $this->session->userdata('id_pmi')
+				];
+				$this->PmiM->tambahAcara($data);
+				$this->session->set_flashdata('message', "
+						<script>
+							Swal.fire({
+							title: 'Selamat !',
+							text: 'Acara Telah Ditambahkan',
+							icon: 'success',
+							showConfirmButton : false
+							})
+						</script>
+					");
+				redirect('pmi/tambahAcara');
+			}
+		}		
+	}
 	public function tambahPmiAction()
 	{
 		$this->form_validation->set_rules('username', 'Username', 'trim|required');
