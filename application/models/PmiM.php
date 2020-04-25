@@ -10,6 +10,14 @@ class PmiM extends CI_Model {
 	{
 		return $this->db->get_where('pmi', array('username' => $data['username'],'password' => $data['password']))->row_array();
 	}
+	public function tambahPmi($data)
+	{
+		return $this->db->insert('pmi', $data);
+	}
+	public function getPmi()
+	{
+		return $this->db->query("SELECT * FROM `pmi`")->result();
+	}
 }
 
 /* End of file PmiM.php */

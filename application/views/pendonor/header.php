@@ -12,6 +12,7 @@
   <!-- <link href="<?php echo base_url('assets/') ?>css/style.css" type="text/css" rel="stylesheet" media="screen,projection"> -->
   <link href="<?php echo base_url('assets/') ?>js/plugins/prism/prism.css" type="text/css" rel="stylesheet" media="screen,projection">
   <link href="<?php echo base_url('assets/') ?>js/plugins/perfect-scrollbar/perfect-scrollbar.css" type="text/css" rel="stylesheet" media="screen,projection">
+  <link rel="stylesheet" href="<?php echo base_url('assets/') ?>css/sweetalert2.css">
 
   <!-- <link href="<?php echo base_url('assets/') ?>css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/> -->
 </head>

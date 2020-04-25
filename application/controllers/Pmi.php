@@ -15,6 +15,7 @@ class Pmi extends CI_Controller {
 		}else{
 			redirect('login');
 		}
+		$this->load->model('PmiM');
 	}
 	public function index()
 	{
@@ -30,8 +31,9 @@ class Pmi extends CI_Controller {
 	}
 	public function dataPmi()
 	{
+		$data['pmi'] = $this->PmiM->getPmi();
 		$this->load->view('pmi/header');
-		$this->load->view('pmi/data_pmi');
+		$this->load->view('pmi/data_pmi',$data);
 		$this->load->view('pmi/footer');	
 	}
 	public function tambahPmiAction()
@@ -41,11 +43,23 @@ class Pmi extends CI_Controller {
 		$this->form_validation->set_rules('confirmPassword', 'Confirm Password', 'trim|required|matches[password]');
 		$this->form_validation->set_rules('alamat', 'Alamat', 'trim|required|min_length[5]');
 		if ($this->form_validation->run() == false) {
-			$errors = validation_errors();
-            echo json_encode(['error'=>$errors]);
+			// $errors = validation_errors();
+			// $errors = 'data belum lengkap';
+            echo json_encode(['error'=>'Data PMI Belum Lengkap.']);
 		} else {
-			echo json_encode(['success'=>'Record added successfully.']);
+			$data = [
+				'username' => $this->input->post('username'),
+				'password' => md5($this->input->post('password')),
+				'alamat_pmi' => $this->input->post('alamat')
+			];
+			$this->PmiM->tambahPmi($data);
+			echo json_encode(['success'=>'Berhasil Input Data PMI.']);
 		}
+	}
+	public function getDataPmi()
+	{
+		$data = $this->PmiM->getPmi();
+		echo json_encode($data);
 	}
 	public function logout()
 	{

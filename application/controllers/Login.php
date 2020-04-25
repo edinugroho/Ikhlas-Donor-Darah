@@ -89,6 +89,18 @@ class Login extends CI_Controller {
 					");
 					redirect('login');
 				}
+			}else{
+				$this->session->set_flashdata('notFound', "
+					<script>
+					Swal.fire({
+						title: 'Error !',
+						text: 'Role Harus Dipilih',
+						icon: 'error',
+						showConfirmButton : false
+						})
+					</script>
+						");
+				redirect('login');
 			}
 		}	
 	}

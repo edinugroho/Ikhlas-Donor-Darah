@@ -67,6 +67,7 @@
                               <button id="tambahPmi" class="btn cyan waves-effect waves-light right" type="submit" name="action">Tambah
                                 <i class="mdi-content-send right"></i>
                               </button>
+                              <div class="print-error-msg"></div>
                             </div>
                           </div>
                         </div>
@@ -105,11 +106,23 @@
       })
       .done(function(data) {
         if($.isEmptyObject(data.error)){
-          $(".print-error-msg").css('display','none');
-          alert(data.success);
+          // $(".print-error-msg").css('display','none');
+          // alert(data.success);
+          Swal.fire({
+            title: 'Selamat !',
+            text: data.success,
+            icon: 'success',
+            showConfirmButton : false
+          })
         }else{
-          $(".print-error-msg").css('display','block');
-          $(".print-error-msg").html(data.error);
+          // $(".print-error-msg").css('display','block');
+          // $(".print-error-msg").html(data.error);
+          Swal.fire({
+            title: 'Error !',
+            text: data.error,
+            icon: 'error',
+            showConfirmButton : false
+          })
         }
         console.log(data);
       })
