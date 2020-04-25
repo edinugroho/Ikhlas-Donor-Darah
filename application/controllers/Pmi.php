@@ -16,6 +16,7 @@ class Pmi extends CI_Controller {
 			redirect('login');
 		}
 		$this->load->model('PmiM');
+		$this->load->model('PetugasM');
 	}
 	public function index()
 	{
@@ -36,6 +37,12 @@ class Pmi extends CI_Controller {
 		$this->load->view('pmi/data_pmi',$data);
 		$this->load->view('pmi/footer');	
 	}
+	public function tambahPetugas()
+	{
+		$this->load->view('pmi/header');
+		$this->load->view('pmi/tambah_petugas');
+		$this->load->view('pmi/footer');		
+	}
 	public function tambahPmiAction()
 	{
 		$this->form_validation->set_rules('username', 'Username', 'trim|required');
@@ -54,6 +61,26 @@ class Pmi extends CI_Controller {
 			];
 			$this->PmiM->tambahPmi($data);
 			echo json_encode(['success'=>'Berhasil Input Data PMI.']);
+		}
+	}
+	public function tambahPetugasAction()
+	{
+		$this->form_validation->set_rules('username', 'Username', 'trim|required');
+		$this->form_validation->set_rules('password', 'Password', 'trim|required');
+		$this->form_validation->set_rules('confirmPassword', 'Confirm Password', 'trim|required|matches[password]');
+		$this->form_validation->set_rules('nama', 'nama', 'trim|required|min_length[5]');
+		if ($this->form_validation->run() == false) {
+			// $errors = validation_errors();
+			// $errors = 'data belum lengkap';
+            echo json_encode(['error'=>'Data Petugas Belum Lengkap.']);
+		} else {
+			$data = [
+				'username' => $this->input->post('username'),
+				'password' => md5($this->input->post('password')),
+				'nama_petugas' => $this->input->post('nama')
+			];
+			$this->PetugasM->tambahPetugas($data);
+			echo json_encode(['success'=>'Berhasil Input Data Petugas.']);
 		}
 	}
 	public function getDataPmi()

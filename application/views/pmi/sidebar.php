@@ -45,9 +45,9 @@
       <li class="bold"><a class="collapsible-header waves-effect waves-cyan"><i class="mdi-maps-location-history"></i> Petugas</a>
         <div class="collapsible-body">
           <ul>
-            <li><a href="css-typography.html">Tambah Petugas</a>
+            <li><a href="<?php echo base_url('pmi/tambahPetugas'); ?>">Tambah Petugas</a>
             </li>                                        
-            <li><a href="css-icons.html">Data Petugas</a>
+            <li><a href="<?php echo base_url('pmi/dataPetugas'); ?>">Data Petugas</a>
             </li>
           </ul>
         </div>
@@ -57,9 +57,9 @@
       <li class="bold"><a class="collapsible-header waves-effect waves-cyan"><i class="mdi-action-event"></i> Acara</a>
         <div class="collapsible-body">
           <ul>
-            <li><a href="css-typography.html">Tambah Acara</a>
+            <li><a href="<?php echo base_url('pmi/tambahAcara'); ?>">Tambah Acara</a>
             </li>                                        
-            <li><a href="css-icons.html">Daftar Acara</a>
+            <li><a href="<?php echo base_url('pmi/dataAcara'); ?>">Daftar Acara</a>
             </li>
           </ul>
         </div>
