@@ -64,8 +64,8 @@
                             <td><?php echo $value->username ?></td>
                             <td><?php echo $value->nama_petugas ?></td>
                             <td>
-                              <a class="btn waves-effect waves-light teal" type="submit" name="action">Edit</a>
-                              <a class="btn waves-effect waves-light red darken-4" type="submit" name="action">Hapus</a>
+                              <a class="waves-effect waves-light btn modal-trigger teal" href="#modal<?php echo $value->id_petugas?>">Edit</a>
+                              <a href="<?php echo base_url('pmi/hapusPetugas/').$value->id_petugas; ?>" class="btn waves-effect waves-light red darken-4">Hapus</a>
                             </td>
                           </tr>
                         <?php endforeach ?>
@@ -89,7 +89,41 @@
   </div>
   <!-- END WRAPPER -->
 </div>
-<!-- END MAIN --> 
+<!-- modal -->
+
+<!-- Modal Structure -->
+<?php foreach ($petugas as $key => $value): ?>
+  <div id="modal<?php echo $value->id_petugas; ?>" class="modal">
+    <div class="modal-content">
+      <h4>Modal Header</h4>
+      <div class="row">
+        <form class="col s12" method="post" action="<?php echo base_url('pmi/editPetugas') ?>">
+          <div class="row">
+            <div class="input-field col s12">
+              <input value="<?php echo $value->id_petugas; ?>" name="idPetugas" type="hidden">
+              <input id="username" value="<?php echo $value->username; ?>" name="username" type="text">
+              <label for="first_name">Username</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="nama" value="<?php echo $value->nama_petugas; ?>" name="nama" type="text">
+              <label for="nama">Nama Petugas</label>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <button class="btn cyan waves-effect waves-light right" type="submit" name="action">Edit</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+<?php endforeach ?>
+<!-- modal -->
+<!-- END MAIN -->
+<?php echo $this->session->flashdata('message');; ?>
 <script>
   // $(document).ready(function() {
   //   tapilDataPmi()

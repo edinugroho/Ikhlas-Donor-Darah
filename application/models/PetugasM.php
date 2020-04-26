@@ -18,6 +18,18 @@ class PetugasM extends CI_Model {
 	{
 		return $this->db->insert('petugas', $data);
 	}
+	public function editPetugas($data)
+	{
+		$this->db->set('username', $data['username']);
+		$this->db->set('nama_petugas', $data['nama_petugas']);
+		$this->db->where('id_petugas', $data['id_petugas']);
+		return $this->db->update('petugas');
+	}
+	public function hapusPetugas($id)
+	{
+		$this->db->where('id_petugas', $id);
+		return $this->db->delete('petugas');
+	}
 }
 
 /* End of file PetugasM.php */

@@ -50,13 +50,13 @@ class Pmi extends CI_Controller {
 		$this->load->view('pmi/data_petugas',$data);
 		$this->load->view('pmi/footer');		
 	}
-	// public function dataAcara()
-	// {
-	// 	$data['acara'] = $this->PmiM->getAcara();
-	// 	$this->load->view('pmi/header');
-	// 	$this->load->view('pmi/data_acara',$data);
-	// 	$this->load->view('pmi/footer');		
-	// }
+	public function dataAcara()
+	{
+		$data['acara'] = $this->PmiM->getAcara();
+		$this->load->view('pmi/header');
+		$this->load->view('pmi/data_acara',$data);
+		$this->load->view('pmi/footer');		
+	}
 	public function tambahAcara()
 	{
 		$this->form_validation->set_rules('namaAcara', 'Nama Acara', 'trim|required');
@@ -141,6 +141,45 @@ class Pmi extends CI_Controller {
 			];
 			$this->PetugasM->tambahPetugas($data);
 			echo json_encode(['success'=>'Berhasil Input Data Petugas.']);
+		}
+	}
+	public function editPetugas()
+	{
+		$data = [
+			'id_petugas' => $this->input->post('idPetugas'),
+			'username' => $this->input->post('username'),
+			'nama_petugas' => $this->input->post('nama')
+		];
+		$q = $this->PetugasM->editPetugas($data);
+		if ($q == 1) {
+			$this->session->set_flashdata('message', "
+			<script>
+			Swal.fire({
+				title: 'Selamat !',
+				text: 'Petugas Berhasil Di Edit',
+				icon: 'success',
+				showConfirmButton : false
+				})
+			</script>
+			");
+			redirect('pmi/dataPetugas');	
+		}
+	}
+	public function hapusPetugas($id)
+	{
+		$q = $this->PetugasM->hapusPetugas($id);
+		if ($q == 1) {
+			$this->session->set_flashdata('message', "
+			<script>
+			Swal.fire({
+				title: 'Selamat !',
+				text: 'Petugas Berhasil Di Hapus',
+				icon: 'success',
+				showConfirmButton : false
+				})
+			</script>
+			");
+			redirect('pmi/dataPetugas');
 		}
 	}
 	public function getDataPmi()

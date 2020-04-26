@@ -17,11 +17,11 @@
         <div class="container">
           <div class="row">
             <div class="col s12 m12 l12">
-              <h5 class="breadcrumbs-title">Data Palang Merah Indonesia</h5>
+              <h5 class="breadcrumbs-title">Data Acara Palang Merah Indonesia</h5>
               <ol class="breadcrumbs">
                 <li><a href="index.html">Dashboard</a></li>
-                <li><a href="#">PMI</a></li>
-                <li class="active">Data Palang Merah Indonesia</li>
+                <li><a href="#">Acara</a></li>
+                <li class="active">Data Acara Palang Merah Indonesia</li>
               </ol>
             </div>
           </div>
@@ -40,27 +40,45 @@
               <div class="card">
                 <div class="card-content">
                   <div id="table-datatables">
-                    <h4 class="header">Data Palang Merah Indonesia</h4>
+                    <h4 class="header">Data Acara Palang Merah Indonesia</h4>
                     <table id="data-table-simple" class="responsive-table display" cellspacing="0">
                       <thead>
                         <tr>
-                          <th>Username</th>
-                          <th>Alamat</th>
+                          <th>Nama Acara</th>
+                          <th>Gambar</th>
+                          <th>Tanggal</th>
+                          <th>Deskripsi</th>
+                          <th>Poin</th>
+                          <th>Penyelenggara</th>
+                          <th>Aksi</th>
                         </tr>
                       </thead>
 
                       <tfoot>
                         <tr>
-                          <th>Username</th>
-                          <th>Alamat</th>
+                          <th>Nama Acara</th>
+                          <th>Gambar</th>
+                          <th>Tanggal</th>
+                          <th>Deskripsi</th>
+                          <th>Poin</th>
+                          <th>Penyelenggara</th>
+                          <th>Aksi</th>
                         </tr>
                       </tfoot>
 
                       <tbody id="dataPmi">
                         <?php foreach ($acara as $key => $value): ?>
                           <tr>
+                            <td><?php echo $value->nama_acara ?></td>
+                            <td><img src="<?php echo base_url().$value->gambar; ?>" height="100" width="100" alt=""></td>
+                            <td><?php echo $value->tanggal_acara ?></td>
+                            <td><?php echo $value->deskripsi ?></td>
+                            <td><?php echo $value->poin ?></td>
                             <td><?php echo $value->username ?></td>
-                            <td><?php echo $value->alamat_pmi ?></td>
+                            <td>
+                              <a class="btn waves-effect waves-light teal" type="submit" name="action">Edit</a>
+                              <a class="btn waves-effect waves-light red darken-4" type="submit" name="action">Hapus</a>
+                            </td>
                           </tr>
                         <?php endforeach ?>
                       </tbody>
