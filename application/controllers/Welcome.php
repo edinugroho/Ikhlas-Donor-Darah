@@ -30,6 +30,7 @@ class Welcome extends CI_Controller {
 				redirect('pmi');
 			}
 		}
+		$this->load->model('PmiM');
 	}
 	public function index()
 	{
@@ -39,8 +40,9 @@ class Welcome extends CI_Controller {
 	}
 	public function kontak()
 	{
+		$data['pmi'] = $this->PmiM->getPmi();
 		$this->load->view('header');
-		$this->load->view('kontak');
+		$this->load->view('kontak',$data);
 		$this->load->view('footer');	
 	}
 	public function hadiah()
@@ -51,8 +53,9 @@ class Welcome extends CI_Controller {
 	}
 	public function jadwal()
 	{
+		$data['acara'] = $this->PmiM->getAcara();
 		$this->load->view('header');
-		$this->load->view('jadwal');
+		$this->load->view('jadwal',$data);
 		$this->load->view('footer');	
 	}
 	public function tentang()

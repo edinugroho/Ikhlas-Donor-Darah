@@ -14,6 +14,10 @@ class PendonorM extends CI_Model {
 	{
 		return $this->db->insert('pendonor', $data);
 	}
+	public function ikutiAcara($data)
+	{
+		$this->db->query("INSERT INTO `daftar` (`id_pendonor`, `id_acara`) VALUES ('".$data['id_pendonor']."', '".$data['id_acara']."');");
+	}
 }
 
 /* End of file PendonorM.php */

@@ -25,11 +25,10 @@
         <li><a href="<?php echo base_url('pendonor/logout') ?>">Logout</a></li>
       </ul>
       <ul class="right hide-on-med-and-down">
-        <li><a href="<?php echo site_url('/welcome') ?>">Home</a></li>
-        <li><a href="<?php echo site_url('/welcome/jadwal') ?>">Jadwal</a></li>
-        <li><a href="<?php echo site_url('/welcome/hadiah') ?>">Hadiah</a></li>
-        <li><a href="<?php echo site_url('/welcome/kontak') ?>">Kontak PMI</a></li>
-        <li><a href="<?php echo site_url('/welcome/tentang') ?>">Tentang Donor</a></li>
+        <li><a href="<?php echo site_url('/pendonor/jadwal') ?>">Jadwal</a></li>
+        <li><a href="<?php echo site_url('/pendonor/hadiah') ?>">Hadiah</a></li>
+        <li><a href="<?php echo site_url('/pendonor/kontak') ?>">Kontak PMI</a></li>
+        <li><a href="<?php echo site_url('/pendonor/tentang') ?>">Tentang Donor</a></li>
         <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Akun<i class="mdi-navigation-arrow-drop-down right"></i></a></li>
       </ul>
       

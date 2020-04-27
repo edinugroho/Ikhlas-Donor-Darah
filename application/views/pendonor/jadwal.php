@@ -13,7 +13,7 @@
 				</div>
 				<div class="card-content">
 					<span class="card-title activator grey-text text-darken-4"><?php echo $value->nama_acara; ?><i class="material-icons right">more_vert</i></span>
-					<p><a href="<?php echo base_url('login') ?>">Login Untuk Mengikuti Acara</a></p>
+					<p><a href="<?php echo base_url('/pendonor/ikutiAcara/').$value->id_acara; ?>">Ikuti Acara</a></p>
 				</div>
 				<div class="card-reveal">
 					<span class="card-title grey-text text-darken-4"><?php echo $value->nama_acara; ?><i class="material-icons right">close</i></span>

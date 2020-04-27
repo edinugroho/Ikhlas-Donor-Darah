@@ -49,4 +49,30 @@
       </div>
     </div>
   </div>
+  <div class="section">
+    <div><h5>Daftar Acara Yang Diikuti</h5></div>
+      <table>
+        <thead>
+          <tr>
+            <th>Nama Acara</th>
+            <th>Gambar</th>
+            <th>Tanggal Acara</th>
+            <th>Deskripsi</th>
+            <th>Poin</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <?php foreach ($acaraTerdaftar as $key => $value): ?>
+          <tr>
+            <td><?php echo $value->nama_acara; ?></td>
+            <td><img src="<?php echo $value->gambar; ?>" alt="" heigth='200' width='200'></td>
+            <td><?php echo $value->tanggal_acara; ?></td>
+            <td><?php echo $value->deskripsi; ?></td>
+            <td><?php echo $value->poin; ?></td>
+          </tr>
+          <?php endforeach ?>
+        </tbody>
+      </table>
+  </div>
 </div>

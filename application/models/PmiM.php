@@ -26,6 +26,19 @@ class PmiM extends CI_Model {
 	{
 		return $this->db->query("SELECT * FROM acara JOIN pmi on pmi.id_pmi = acara.id_pmi")->result();
 	}
+	public function getAcaraBelumDaftar($id_pendonor)
+	{
+		return $this->db->get_where('acara', array('id' => $id), $limit, $offset);
+		return $this->db->query("SELECT * FROM acara JOIN pmi on pmi.id_pmi = acara.id_pmi")->result();
+	}
+	public function cekAcaraTerdaftar($id_pendonor)
+	{
+		return $this->db->query("SELECT * FROM daftar
+			JOIN acara
+			ON daftar.id_acara = acara.id_acara
+			WHERE daftar.id_pendonor = '$id_pendonor'"
+		)->result();
+	}
 }
 
 /* End of file PmiM.php */

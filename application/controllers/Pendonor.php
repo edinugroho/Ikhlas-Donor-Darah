@@ -16,12 +16,58 @@ class Pendonor extends CI_Controller {
 			redirect('login');
 		}
 		$this->load->model('PendonorM');
+		$this->load->model('PmiM');
 	}
 	public function index()
 	{
+		$data['acaraTerdaftar'] = $this->PmiM->cekAcaraTerdaftar($this->session->userdata('id_pendonor'));
 		$this->load->view('pendonor/header');
-		$this->load->view('pendonor/profile');
+		$this->load->view('pendonor/profile',$data);
 		$this->load->view('pendonor/footer');				
+	}
+	public function jadwal()
+	{
+		$data['acara'] = $this->PmiM->getAcara();
+		$this->load->view('pendonor/header');
+		$this->load->view('pendonor/jadwal',$data);
+		$this->load->view('pendonor/footer');
+	}
+	public function hadiah()
+	{
+		$this->load->view('pendonor/header');
+		$this->load->view('pendonor/hadiah');
+		$this->load->view('pendonor/footer');
+	}
+	public function kontak()
+	{
+		$data['pmi'] = $this->PmiM->getPmi();
+		$this->load->view('pendonor/header');
+		$this->load->view('kontak',$data);
+		$this->load->view('pendonor/footer');
+	}
+	public function tentang()
+	{
+		$this->load->view('pendonor/header');
+		$this->load->view('tentang');
+		$this->load->view('pendonor/footer');
+	}
+	public function ikutiAcara($id_acara)
+	{
+		$data = [
+			'id_pendonor' => $this->session->userdata('id_pendonor'),
+			'id_acara' => $id_acara
+		];
+		$this->PendonorM->ikutiAcara($data);
+		$this->session->set_flashdata('message', "
+			<script>
+			Swal.fire({
+				title: 'Selamat !',
+				text: 'Acara Telah Terdaftar Dalam Acara',
+				icon: 'success',
+				showConfirmButton : false
+				})
+			</script>
+		");
 	}
 	public function logout()
 	{
