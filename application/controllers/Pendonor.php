@@ -20,7 +20,10 @@ class Pendonor extends CI_Controller {
 	}
 	public function index()
 	{
-		$data['acaraTerdaftar'] = $this->PmiM->cekAcaraTerdaftar($this->session->userdata('id_pendonor'));
+		$data['acaraTerdaftar'] = $this->PmiM->getAcaraTerdaftar($this->session->userdata('id_pendonor'));
+		$data['acaraTerlaksana'] = $this->PmiM->getAcaraTerlaksana($this->session->userdata('id_pendonor'));
+		$data['countTerlaksana'] = $this->PmiM->countAcaraTerlaksana($this->session->userdata('id_pendonor'));
+		$data['countAcara'] = $this->PmiM->countAcara($this->session->userdata('id_pendonor'));
 		$this->load->view('pendonor/header');
 		$this->load->view('pendonor/profile',$data);
 		$this->load->view('pendonor/footer');				

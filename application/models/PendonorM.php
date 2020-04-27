@@ -18,6 +18,17 @@ class PendonorM extends CI_Model {
 	{
 		$this->db->query("INSERT INTO `daftar` (`id_pendonor`, `id_acara`) VALUES ('".$data['id_pendonor']."', '".$data['id_acara']."');");
 	}
+	public function getPeserta()
+	{
+		return $this->db->query("
+			SELECT pendonor.nama_pendonor, pendonor.umur_pendonor, pendonor.no_hp, acara.nama_acara, daftar.status 
+			FROM daftar
+			JOIN pendonor
+			ON daftar.id_pendonor = pendonor.id_pendonor
+			JOIN acara
+			ON acara.id_acara = daftar.id_acara"
+		)->result();
+	}
 }
 
 /* End of file PendonorM.php */
