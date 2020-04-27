@@ -108,7 +108,7 @@ class Pmi extends CI_Controller {
 		$this->form_validation->set_rules('username', 'Username', 'trim|required');
 		$this->form_validation->set_rules('password', 'Password', 'trim|required');
 		$this->form_validation->set_rules('confirmPassword', 'Confirm Password', 'trim|required|matches[password]');
-		$this->form_validation->set_rules('alamat', 'Alamat', 'trim|required|min_length[5]');
+		$this->form_validation->set_rules('alamat', 'Alamat', 'trim|required');
 		if ($this->form_validation->run() == false) {
 			// $errors = validation_errors();
 			// $errors = 'data belum lengkap';
@@ -128,7 +128,7 @@ class Pmi extends CI_Controller {
 		$this->form_validation->set_rules('username', 'Username', 'trim|required');
 		$this->form_validation->set_rules('password', 'Password', 'trim|required');
 		$this->form_validation->set_rules('confirmPassword', 'Confirm Password', 'trim|required|matches[password]');
-		$this->form_validation->set_rules('nama', 'nama', 'trim|required|min_length[5]');
+		$this->form_validation->set_rules('nama', 'nama', 'trim|required');
 		if ($this->form_validation->run() == false) {
 			// $errors = validation_errors();
 			// $errors = 'data belum lengkap';

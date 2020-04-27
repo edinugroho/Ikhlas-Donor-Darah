@@ -21,13 +21,24 @@ class PendonorM extends CI_Model {
 	public function getPeserta()
 	{
 		return $this->db->query("
-			SELECT pendonor.nama_pendonor, pendonor.umur_pendonor, pendonor.no_hp, acara.nama_acara, daftar.status 
+			SELECT pendonor.id_pendonor, pendonor.nama_pendonor, pendonor.umur_pendonor, pendonor.no_hp, acara.nama_acara, daftar.status, acara.tanggal_acara, acara.id_acara
 			FROM daftar
 			JOIN pendonor
 			ON daftar.id_pendonor = pendonor.id_pendonor
 			JOIN acara
 			ON acara.id_acara = daftar.id_acara"
 		)->result();
+	}
+	public function updateStatus($data)
+	{
+		$this->db->set('status', 'terlaksana');
+		$this->db->where('id_pendonor', $data['id_pendonor']);
+		$this->db->where('id_acara', $data['id_acara']);
+		return $this->db->update('daftar');
+	}
+	public function updatePoin($data)
+	{
+		$this->db->query("UPDATE `pendonor` SET `poin` = `poin` + '".$data['poin']."' WHERE `id_pendonor` = '".$data['id_pendonor']."'");
 	}
 }
 

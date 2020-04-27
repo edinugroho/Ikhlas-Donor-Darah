@@ -30,6 +30,10 @@ class PetugasM extends CI_Model {
 		$this->db->where('id_petugas', $id);
 		return $this->db->delete('petugas');
 	}
+	public function prosesDonor($data)
+	{
+		$this->db->insert('donor', $data);
+	}
 }
 
 /* End of file PetugasM.php */

@@ -26,6 +26,10 @@ class PmiM extends CI_Model {
 	{
 		return $this->db->query("SELECT * FROM acara JOIN pmi on pmi.id_pmi = acara.id_pmi")->result();
 	}
+	public function getAcaraById($id)
+	{
+		return $this->db->query("SELECT * FROM `acara` WHERE `id_acara`='$id'")->row();
+	}
 	public function getAcaraTerlaksana($id_pendonor)
 	{
 		return $this->db->query("SELECT * FROM daftar 

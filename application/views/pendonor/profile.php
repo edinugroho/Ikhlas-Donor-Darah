@@ -17,7 +17,7 @@
           </div>
           <div class="col s2 center-align">
             <h4 class="card-title grey-text text-darken-4"><?php echo $countAcara->jumlah ?></h4>
-            <p class="medium-small grey-text">Acara Yang Akan Diikuti</p>                        
+            <p class="medium-small grey-text">Seluruh Acara</p>                        
           </div>
           <div class="col s2 center-align">
             <h4 class="card-title grey-text text-darken-4"><?php echo $countTerlaksana->jumlah ?></h4>
