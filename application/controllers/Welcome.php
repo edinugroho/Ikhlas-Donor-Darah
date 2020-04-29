@@ -34,9 +34,7 @@ class Welcome extends CI_Controller {
 	}
 	public function index()
 	{
-		$this->load->view('header');
-		$this->load->view('index');
-		$this->load->view('footer');
+		$this->load->view('carousel');
 	}
 	public function kontak()
 	{
@@ -63,5 +61,11 @@ class Welcome extends CI_Controller {
 		$this->load->view('header');
 		$this->load->view('tentang');
 		$this->load->view('footer');	
+	}
+	public function home()
+	{
+		$this->load->view('header');
+		$this->load->view('index');
+		$this->load->view('footer');
 	}
 }
