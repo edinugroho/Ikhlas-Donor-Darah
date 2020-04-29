@@ -49,6 +49,7 @@ class Petugas extends CI_Controller {
 		$this->PendonorM->updatePoin($dataup);
 		$this->PendonorM->updateStatus($datau);
 		$this->PetugasM->prosesDonor($data);
+		redirect('petugas');
 	}
 	public function logout()
 	{

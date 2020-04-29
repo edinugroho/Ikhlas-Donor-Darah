@@ -61,16 +61,7 @@ class Pendonor extends CI_Controller {
 			'id_acara' => $id_acara
 		];
 		$this->PendonorM->ikutiAcara($data);
-		$this->session->set_flashdata('message', "
-			<script>
-			Swal.fire({
-				title: 'Selamat !',
-				text: 'Acara Telah Terdaftar Dalam Acara',
-				icon: 'success',
-				showConfirmButton : false
-				})
-			</script>
-		");
+		redirect('pendonor');
 	}
 	public function logout()
 	{

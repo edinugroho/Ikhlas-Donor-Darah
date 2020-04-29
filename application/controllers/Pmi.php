@@ -17,11 +17,16 @@ class Pmi extends CI_Controller {
 		}
 		$this->load->model('PmiM');
 		$this->load->model('PetugasM');
+		$this->load->model('PendonorM');
 	}
 	public function index()
 	{
+		$data['jumlahAcara'] = $this->PmiM->countAllAcara()->jumlah;
+		$data['jumlahPendonor'] = $this->PendonorM->countPendonor()->jumlah;
+		$data['jumlahDarah'] = $this->PmiM->countDarah()->jumlah;
+		$data['jumlahPetugas'] = $this->PetugasM->countPetugas()->jumlah;
 		$this->load->view('pmi/header');
-		$this->load->view('pmi/body');
+		$this->load->view('pmi/body',$data);
 		$this->load->view('pmi/footer');
 	}
 	public function tambahPmi()
@@ -180,6 +185,46 @@ class Pmi extends CI_Controller {
 			</script>
 			");
 			redirect('pmi/dataPetugas');
+		}
+	}
+	public function editAcara()
+	{
+		$data = [
+			'id_acara' => $this->input->post('id_acara'),
+			'nama_acara' => $this->input->post('nama_acara'),
+			'poin' => $this->input->post('poin'),
+			'deskripsi' => $this->input->post('deskripsi')
+		];
+		$q = $this->PmiM->editAcara($data);
+		if ($q == 1) {
+			$this->session->set_flashdata('message', "
+			<script>
+			Swal.fire({
+				title: 'Selamat !',
+				text: 'Acara Berhasil Di Edit',
+				icon: 'success',
+				showConfirmButton : false
+				})
+			</script>
+			");
+			redirect('pmi/dataAcara');	
+		}
+	}
+	public function hapusAcara($id)
+	{
+		$q = $this->PmiM->hapusAcara($id);
+		if ($q == 1) {
+			$this->session->set_flashdata('message', "
+			<script>
+			Swal.fire({
+				title: 'Selamat !',
+				text: 'Acara Berhasil Di Hapus',
+				icon: 'success',
+				showConfirmButton : false
+				})
+			</script>
+			");
+			redirect('pmi/dataAcara');
 		}
 	}
 	public function getDataPmi()
