@@ -47,7 +47,6 @@
   <script type="text/javascript" src="<?php echo base_url('assets/') ?>js/plugins/chartjs/chart-script.js"></script>
   <!-- <script src="js/init.js"></script> -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-  <?php echo $this->session->flashdata('message'); ?>
   <script>
     $(document).ready(function() {
       $(".dropdown-trigger").dropdown();

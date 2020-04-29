@@ -76,8 +76,8 @@
                             <td><?php echo $value->poin ?></td>
                             <td><?php echo $value->username ?></td>
                             <td>
-                              <a class="btn waves-effect waves-light teal" type="submit" name="action">Edit</a>
-                              <a class="btn waves-effect waves-light red darken-4" type="submit" name="action">Hapus</a>
+                              <a class="waves-effect waves-light btn modal-trigger teal" href="#modal<?php echo $value->id_acara?>">Edit</a>
+                              <a href="<?php echo base_url('pmi/hapusAcara/').$value->id_acara; ?>" class="btn waves-effect waves-light red darken-4">Hapus</a>
                             </td>
                           </tr>
                         <?php endforeach ?>
@@ -102,6 +102,42 @@
   <!-- END WRAPPER -->
 </div>
 <!-- END MAIN --> 
+<?php foreach ($acara as $key => $value): ?>
+  <div id="modal<?php echo $value->id_acara; ?>" class="modal">
+    <div class="modal-content">
+      <h4>Edit Acara</h4>
+      <div class="row">
+        <form class="col s12" method="post" action="<?php echo base_url('pmi/editAcara') ?>">
+          <div class="row">
+            <div class="input-field col s12">
+              <input value="<?php echo $value->id_acara; ?>" name="id_acara" type="hidden">
+              <input id="nama_acara" value="<?php echo $value->nama_acara; ?>" name="nama_acara" type="text">
+              <label for="nama_acara">Nama Acara</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <textarea id="deskripsi" name="deskripsi" class="materialize-textarea"><?php echo $value->deskripsi; ?></textarea>
+              <label for="deskripsi" class="">Deskripsi</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="poin" value="<?php echo $value->poin; ?>" name="poin" type="text">
+              <label for="poin">Nama Petugas</label>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <button class="btn cyan waves-effect waves-light right" type="submit" name="action">Edit</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+<?php endforeach ?>
+<?php echo $this->session->flashdata('message'); ?>
 <script>
   // $(document).ready(function() {
   //   tapilDataPmi()

@@ -95,7 +95,7 @@
 <?php foreach ($petugas as $key => $value): ?>
   <div id="modal<?php echo $value->id_petugas; ?>" class="modal">
     <div class="modal-content">
-      <h4>Modal Header</h4>
+      <h4>Edit Petugas</h4>
       <div class="row">
         <form class="col s12" method="post" action="<?php echo base_url('pmi/editPetugas') ?>">
           <div class="row">
@@ -123,7 +123,7 @@
 <?php endforeach ?>
 <!-- modal -->
 <!-- END MAIN -->
-<?php echo $this->session->flashdata('message');; ?>
+<?php echo $this->session->flashdata('message'); ?>
 <script>
   // $(document).ready(function() {
   //   tapilDataPmi()

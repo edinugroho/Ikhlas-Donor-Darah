@@ -10,62 +10,16 @@
           <ul id="profile-dropdown" class="dropdown-content">
             <li><a href="#"><i class="mdi-action-face-unlock"></i> Profile</a>
             </li>
-            <li><a href="#"><i class="mdi-action-settings"></i> Settings</a>
-            </li>
-            <li><a href="#"><i class="mdi-communication-live-help"></i> Help</a>
-            </li>
-            <li class="divider"></li>
-            <li><a href="#"><i class="mdi-action-lock-outline"></i> Lock</a>
-            </li>
-            <li><a href="#"><i class="mdi-hardware-keyboard-tab"></i> Logout</a>
+            <li><a href="<?php echo base_url('petugas/logout'); ?>"><i class="mdi-hardware-keyboard-tab"></i> Logout</a>
             </li>
           </ul>
           <a class="btn-flat dropdown-button waves-effect waves-light white-text profile-btn" href="#" data-activates="profile-dropdown"><?php echo $this->session->userdata('username'); ?><i class="mdi-navigation-arrow-drop-down right"></i></a>
-          <p class="user-roal">Kantor Pmi</p>
+          <p class="user-roal">Petugas Pmi</p>
         </div>
       </div>
     </li>
-    <li class="bold"><a href="<?php echo base_url('pmi'); ?>" class="waves-effect waves-cyan"><i class="mdi-action-dashboard"></i> Dashboard</a>
+    <li class="bold"><a href="<?php echo base_url('petugas'); ?>" class="waves-effect waves-cyan"><i class="mdi-action-dashboard"></i> Dashboard</a>
     </li>
-  </li>
-  <li class="no-padding">
-    <ul class="collapsible collapsible-accordion">
-      <li class="bold"><a class="collapsible-header waves-effect waves-cyan"><i class="mdi-maps-local-hospital"></i> PMI</a>
-        <div class="collapsible-body">
-          <ul>
-            <li><a href="<?php echo base_url('pmi/tambahPmi'); ?>">Tambah PMI</a>
-            </li>                                        
-            <li><a href="<?php echo base_url('pmi/dataPmi'); ?>">Data PMI</a>
-            </li>
-          </ul>
-        </div>
-      </li>
-    </ul>
-    <ul class="collapsible collapsible-accordion">
-      <li class="bold"><a class="collapsible-header waves-effect waves-cyan"><i class="mdi-maps-location-history"></i> Petugas</a>
-        <div class="collapsible-body">
-          <ul>
-            <li><a href="css-typography.html">Tambah Petugas</a>
-            </li>                                        
-            <li><a href="css-icons.html">Data Petugas</a>
-            </li>
-          </ul>
-        </div>
-      </li>
-    </ul>
-    <ul class="collapsible collapsible-accordion">
-      <li class="bold"><a class="collapsible-header waves-effect waves-cyan"><i class="mdi-action-event"></i> Acara</a>
-        <div class="collapsible-body">
-          <ul>
-            <li><a href="css-typography.html">Tambah Acara</a>
-            </li>                                        
-            <li><a href="css-icons.html">Daftar Acara</a>
-            </li>
-          </ul>
-        </div>
-      </li>
-    </ul>
-  </li>
 </ul>
 <a href="#" data-activates="slide-out" class="sidebar-collapse btn-floating btn-medium waves-effect waves-light hide-on-large-only darken-2"><i class="mdi-navigation-menu" ></i></a>
 </aside>

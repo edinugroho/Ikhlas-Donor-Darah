@@ -20,7 +20,7 @@
   <nav class="orange darken-2" role="navigation">
     <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo"><img src="https://bebasberkaryaweb.files.wordpress.com/2018/03/dd.png" alt="" height="70"></a>
       <ul id="dropdown1" class="dropdown-content">
-        <li><a href="<?php echo base_url('pendonor') ?>">Setting Akun</a></li>
+        <li><a href="<?php echo base_url('pendonor') ?>">Profile</a></li>
         <li class="divider"></li>
         <li><a href="<?php echo base_url('pendonor/logout') ?>">Logout</a></li>
       </ul>

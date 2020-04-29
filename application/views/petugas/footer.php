@@ -28,7 +28,7 @@
     <script type="text/javascript" src="<?php echo base_url('assets/') ?>js/plugins/data-tables/js/jquery.dataTables.min.js"></script>
 
     <script type="text/javascript" src="<?php echo base_url('assets/') ?>js/plugins/data-tables/data-tables-script.js"></script> 
-        
+    
     <!--plugins.js - Some Specific JS codes for Plugin Settings-->
     <script type="text/javascript" src="<?php echo base_url('assets/') ?>js/plugins.js"></script>
 </body>

@@ -12,7 +12,7 @@
             <img src="<?php echo base_url(); ?>assets/images/avatar_pendonor.png" height="120" width="120" alt="profile image" class="circle z-depth-2 responsive-img activator">
           </div>            
           <div class="col s3">                        
-            <h4 class="card-title grey-text text-darken-4"><?php echo $this->session->userdata('username'); ?></h4>
+            <h4 class="card-title grey-text text-darken-4"><?php echo $this->session->userdata('nama_pendonor'); ?></h4>
             <p class="medium-small grey-text">Pendonor</p>                        
           </div>
           <div class="col s2 center-align">
@@ -36,7 +36,7 @@
       </div>
       <div class="card-reveal">
         <p>
-          <span class="card-title grey-text text-darken-4"><?php echo $this->session->userdata('username'); ?><i class="mdi-navigation-close right"></i></span>
+          <span class="card-title grey-text text-darken-4"><?php echo $this->session->userdata('nama_pendonor'); ?><i class="mdi-navigation-close right"></i></span>
           <span><i class="mdi-action-perm-identity cyan-text text-darken-2"></i> Pendonor</span>
         </p>
       </div>
