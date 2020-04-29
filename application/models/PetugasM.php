@@ -34,6 +34,10 @@ class PetugasM extends CI_Model {
 	{
 		$this->db->insert('donor', $data);
 	}
+	public function countPetugas()
+	{
+		return $this->db->query("SELECT COUNT(*) as jumlah FROM `petugas`")->row();
+	}
 }
 
 /* End of file PetugasM.php */

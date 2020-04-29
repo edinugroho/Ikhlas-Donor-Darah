@@ -62,6 +62,26 @@ class PmiM extends CI_Model {
 			WHERE daftar.id_pendonor = '$id_pendonor'"
 		)->row();	
 	}
+	public function editAcara($data)
+	{
+		$this->db->set('nama_acara', $data['nama_acara']);
+		$this->db->set('deskripsi', $data['deskripsi']);
+		$this->db->set('poin', $data['poin']);
+		$this->db->where('id_acara', $data['id_acara']);
+		return $this->db->update('acara');
+	}
+	public function hapusAcara($id)
+	{
+		$this->db->where('id_acara', $id);
+		return $this->db->delete('acara');
+	}
+	function countAllAcara(){
+		return $this->db->query("SELECT COUNT(*) as jumlah FROM `acara`")->row();
+	}
+	public function countDarah()
+	{
+		return $this->db->query("SELECT COUNT(*) as jumlah FROM `donor`")->row();
+	}
 }
 
 /* End of file PmiM.php */

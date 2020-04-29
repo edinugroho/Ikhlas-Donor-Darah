@@ -40,6 +40,10 @@ class PendonorM extends CI_Model {
 	{
 		$this->db->query("UPDATE `pendonor` SET `poin` = `poin` + '".$data['poin']."' WHERE `id_pendonor` = '".$data['id_pendonor']."'");
 	}
+	public function countPendonor()
+	{
+		return $this->db->query("SELECT COUNT(*) as jumlah FROM `pendonor`")->row();
+	}
 }
 
 /* End of file PendonorM.php */
